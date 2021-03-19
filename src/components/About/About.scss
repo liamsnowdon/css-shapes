@@ -1,0 +1,30 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/functions';
+@import '../../scss/abstracts/mixins';
+
+.about {
+  text-align: center;
+
+  &__pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem-calc(100);
+    width: rem-calc(100);
+    padding: rem-calc(10);
+    margin: 0 auto rem-calc(40);
+    background-color: $secondary-colour;
+    border-radius: 50%;
+    font-size: map-deep-get($header-font-sizes, 'mobile', 'h2');
+
+    @include breakpoint('medium') {
+      font-size: map-deep-get($header-font-sizes, 'desktop', 'h2');
+    }
+  }
+
+  code {
+    padding: rem-calc(5);
+    color: $secondary-colour;
+    background-color: $dark-1;
+  }
+}

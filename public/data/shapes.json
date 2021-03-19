@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Circle",
+    "html": "<div class=\"circle\"></div>",
+    "css": ".circle { \n  height: 200px;\n  width: 200px;\n  background-color: #C651CD;\n  border-radius: 50%; \n}",
+    "scss": "@mixin circle (\n  $diameter: 200px, \n  $color: #C651CD\n) {\n  height: $diameter;\n  width: $diameter;\n  background-color: $color;\n  border-radius: 50%; \n}",
+    "scssMixinUsesMultiplier": false
+  },
+  {
+    "name": "Oval",
+    "html": "<div class=\"oval\"></div>",
+    "css": ".oval { \n  height: 200px;\n  width: 400px;\n  background-color: #C651CD;\n  border-radius: 50%;\n}",
+    "scss": "@mixin oval (\n  $height: 200px, \n  $width: 400px, \n  $color: #C651CD\n) {\n  height: $height;\n  width: $width;\n  background-color: $color;\n  border-radius: 50%;\n}",
+    "scssMixinUsesMultiplier": false
+  },
+  {
+    "name": "Parallelogram",
+    "html": "<div class=\"parallelogram\"></div>",
+    "css": ".parallelogram { \n  height: 150px;\n  width: 250px;\n  background-color: #C651CD;\n  transform: skew(-20deg);\n}",
+    "scss": "@mixin parallelogram (\n  $height: 150px,\n  $width: 250px,\n  $color: $primary-colour,\n  $skew: -20deg\n) {\n  height: $height;\n  width: $width;\n  background-color: #C651CD;\n  transform: skew($skew);\n}",
+    "scssMixinUsesMultiplier": false
+  },
+  {
+    "name": "Rectangle",
+    "html": "<div class=\"rectangle\"></div>",
+    "css": ".rectangle { \n  height: 200px;\n  width: 400px;\n  background-color: #C651CD;\n}",
+    "scss": "@mixin rectangle (\n  $height: 200px,\n  $width: 400px,\n  $color: #C651CD\n) {\n  height: $height;\n  width: $width;\n  background-color: $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "square"
+  },
+  {
+    "name": "Square",
+    "html": "<div class=\"square\"></div>",
+    "css": ".square { \n  height: 200px;\n  width: 200px;\n  background-color: #C651CD;\n}",
+    "scss": "@mixin square (\n  $width: 200px,\n  $color: #C651CD\n) {\n  height: $width;\n  width: $width;\n  background-color: $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "square"
+  },
+  {
+    "name": "Star Five Point",
+    "html": "<div class=\"star-five-point\"></div>",
+    "css": ".star-five-point { \n  height: 0;\n  width: 0;\n  margin: 50px 0;\n  position: relative;\n  display: block;\n  color: #C651CD;\n  border-right: 100px solid transparent;\n  border-left: 100px solid transparent;\n  border-bottom: 70px solid #C651CD;\n  transform: rotate(35deg);\n}\n\n.star-five-point::before { \n  height: 0;\n  width: 0;\n  border-bottom: 80px solid #C651CD;\n  border-left: 30px solid transparent;\n  border-right: 30px solid transparent;\n  position: absolute;\n  top: -45px;\n  left: -65px;\n  display: block;\n  content: \"\";\n  transform: rotate(-35deg);\n}\n\n.star-five-point::after {\n  height: 0;\n  width: 0;\n  position: absolute;\n  display: block;\n  color: #C651CD;\n  top: 3px;\n  left: -105px;\n  border-right: 100px solid transparent;\n  border-left: 100px solid transparent;\n  border-bottom: 70px solid #C651CD;\n  content: \"\";\n  transform: rotate(-70deg);\n}",
+    "scss": "@mixin starFivePoint (\n  $multiplier: 1,\n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  margin: (50px * $multiplier) 0;\n  position: relative;\n  display: block;\n  color: $color;\n  border-right: (100px * $multiplier) solid transparent;\n  border-left: (100px * $multiplier) solid transparent;\n  border-bottom: (70px * $multiplier) solid $color;\n  transform: rotate(35deg);\n\n  &::before {\n    height: 0;\n    width: 0;\n    border-bottom: (80px * $multiplier) solid $color;\n    border-left: (30px * $multiplier) solid transparent;\n    border-right: (30px * $multiplier) solid transparent;\n    position: absolute;\n    top: -45px * $multiplier;\n    left: -65px * $multiplier;\n    display: block;\n    content: \"\";\n    transform: rotate(-35deg);\n  }\n\n  &::after {\n    height: 0;\n    width: 0;\n    position: absolute;\n    display: block;\n    color: $color;\n    top: 3px * $multiplier;\n    left: -105px * $multiplier;\n    border-right: (100px * $multiplier) solid transparent;\n    border-left: (100px * $multiplier) solid transparent;\n    border-bottom: (70px * $multiplier) solid $color;\n    content: \"\";\n    transform: rotate(-70deg);\n  }\n}",
+    "scssMixinUsesMultiplier": true,
+    "group": "star"
+  },
+  {
+    "name": "Star Six Point",
+    "html": "<div class=\"star-six-point\"></div>",
+    "css": ".star-six-point {\n  height: 0;\n  width: 0;\n  margin-bottom: 60px;\n  position: relative;\n  border-right: 100px solid transparent;\n  border-left: 100px solid transparent;\n  border-bottom: 200px solid #C651CD;\n}\n\n.star-six-point::before {\n  height: 0;\n  width: 0;\n  border-right: 100px solid transparent;\n  border-left: 100px solid transparent;\n  border-top: 200px solid #C651CD;\n  position: absolute;\n  top: 60px;\n  left: -105px;\n  content: \"\";\n}",
+    "scss": "@mixin starSixPoint (\n  $multiplier: 1,\n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  margin-bottom: 60px * $multiplier;\n  position: relative;\n  border-right: (100px * $multiplier) solid transparent;\n  border-left: (100px * $multiplier) solid transparent;\n  border-bottom: (200px * $multiplier) solid $color;\n\n  &::before {\n    height: 0;\n    width: 0;\n    border-right: (100px * $multiplier) solid transparent;\n    border-left: (100px * $multiplier) solid transparent;\n    border-top: (200px * $multiplier) solid $color;\n    position: absolute;\n    top: 60px * $multiplier;\n    left: -105px * $multiplier;\n    content: \"\";\n  }\n}",
+    "scssMixinUsesMultiplier": true,
+    "group": "star"
+  },
+  {
+    "name": "Trapezium",
+    "html": "<div class=\"trapezium\"></div>",
+    "css": ".trapezium {\n  height: 0;\n  width: 250px;\n  position: relative;\n  border-right: 50px solid transparent;\n  border-left: 50px solid transparent;\n  border-bottom: 150px solid #C651CD;\n}",
+    "scss": "@mixin trapezium (\n  $width: 250px,\n  $border-right: 50px,\n  $border-left: 50px,\n  $border-bottom: 150px,\n  $color: #C651CD\n) {\n  height: 0;\n  width: $width;\n  position: relative;\n  border-right: $border-right solid transparent;\n  border-left: $border-left solid transparent;\n  border-bottom: $border-bottom solid $color;\n}",
+    "scssMixinUsesMultiplier": false
+  },
+  {
+    "name": "Triangle (Down)",
+    "html": "<div class=\"triangle-down\"></div>",
+    "css": ".triangle-down {\n  height: 0;\n  width: 0;\n  border-right: 100px solid transparent;\n  border-left: 100px solid transparent;\n  border-top: 200px solid #C651CD;\n}",
+    "scss": "@mixin triangleDown (\n  $border-left: 100px, \n  $border-right: 100px,\n  $border-top: 200px,'n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  border-left: $border-left solid transparent;\n  border-right: $border-right solid transparent;\n  border-top: $border-top solid $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "triangle"
+  },
+  {
+    "name": "Triangle (Left)",
+    "html": "<div class=\"triangle-left\"></div>",
+    "css": ".triangle-left {\n  height: 0;\n  width: 0;\n  border-top: 100px solid transparent;\n  border-bottom: 100px solid transparent;\n  border-right: 200px solid #C651CD; \n}",
+    "scss": "@mixin triangleLeft (\n  $border-top: 100px,\n  $border-bottom: 100px,\n  $border-right: 200px,\n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  border-top: $border-top solid transparent;\n  border-bottom: $border-bottom solid transparent;\n  border-right: $border-right solid $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "triangle"
+  },
+  {
+    "name": "Triangle (Right)",
+    "html": "<div class=\"triangle-right\"></div>",
+    "css": ".triangle-right {\n  height: 0;\n  width: 0;\n  border-top: 100px solid transparent;\n  border-bottom: 100px solid transparent;\n  border-left: 200px solid #C651CD;\n}",
+    "scss": "@mixin triangleRight (\n  $border-top: 100px,\n  $border-bottom: 100px,\n  $border-left: 200px,\n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  border-top: $border-top solid transparent;\n  border-bottom: $border-bottom solid transparent;\n  border-left: $border-left solid $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "triangle"
+  },
+  {
+    "name": "Triangle (Up)",
+    "html": "<div class=\"triangle-up\"></div>",
+    "css": ".triangle-up {\n  height: 0;\n  width: 0;\n  border-left: 100px solid transparent;\n  border-right: 100px solid transparent;\n  border-bottom: 200px solid #C651CD;\n}",
+    "scss": "@mixin triangleUp (\n  $border-left: 100px,\n  $border-right: 100px,\n  $border-bottom: 200px,\n  $color: #C651CD\n) {\n  height: 0;\n  width: 0;\n  border-left: $border-left solid transparent;\n  border-right: $border-right solid transparent;\n  border-bottom: $border-bottom solid $color;\n}",
+    "scssMixinUsesMultiplier": false,
+    "group": "triangle"
+  }
+]

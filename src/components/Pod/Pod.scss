@@ -1,0 +1,13 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+
+.pod {
+  padding: 20px;
+  background-color: $dark-2;
+  border-radius: 25px;
+
+  @include breakpoint('medium') {
+    padding: 40px;
+    border-radius: 50px;
+  }
+}

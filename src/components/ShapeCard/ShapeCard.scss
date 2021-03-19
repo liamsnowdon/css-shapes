@@ -1,0 +1,83 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+
+.shape-card {
+  display: block;
+  background-color: $dark-2;
+  border-radius: 10px;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: darken($dark-2, 1%);
+  }
+
+  &__shape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    border-bottom: 1px solid $tertiary-colour;
+  }
+
+  &__shape-circle {
+    @include circle(70px);
+  }
+
+  &__shape-oval {
+    @include oval(70px, 140px);
+  }
+
+  &__shape-square {
+    @include square(70px);
+  }
+
+  &__shape-rectangle {
+    @include rectangle(70px, 140px);
+  }
+
+  &__shape-triangle-up {
+    @include triangleUp(35px, 35px, 70px);
+  }
+
+  &__shape-triangle-down {
+    @include triangleDown(35px, 35px, 70px);
+  }
+
+  &__shape-triangle-left {
+    @include triangleLeft(35px, 35px, 70px);
+  }
+
+  &__shape-triangle-right {
+    @include triangleRight(35px, 35px, 70px);
+  }
+
+  &__shape-trapezium {
+    @include trapezium(140px, 40px, 40px, 70px);
+  }
+
+  &__shape-parallelogram {
+    @include parallelogram(70px, 120px);
+  }
+
+  &__shape-star-six-point {
+    @include starSixPoint(0.4);
+  }
+
+  &__shape-star-five-point {
+    @include starFivePoint(0.5);
+  }
+
+  &__content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  &__name {
+    margin: 0;
+    color: $font-color-1;
+  }
+}

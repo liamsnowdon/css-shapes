@@ -1,0 +1,69 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/placeholders';
+
+.copy-to-clipboard {
+  $base-color: $font-color-3;
+  $hover-color: $font-color-1;
+
+  position: absolute;
+  top: 15px;
+  right: 40px;
+
+  &__button {
+    @extend %button-reset;
+    color: $base-color;
+    font-size: $font-small-3;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: $hover-color;
+
+      svg {
+        fill: $hover-color;
+      }
+    }
+
+    svg {
+      margin-left: 10px;
+      vertical-align: sub;
+      fill: $base-color;
+    }
+  }
+
+  &__notification {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 10px;
+    background: $dark-2;
+    color: $font-color-1;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    white-space: nowrap;
+
+    &::after {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      height: 0;
+      width: 0;
+      border: solid transparent;
+      content: '';
+      border-color: rgba(136, 183, 213, 0);
+      border-bottom-color: $dark-2;
+      border-width: 10px;
+      margin-left: -10px;
+    }
+
+    &:not(.is-active) {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

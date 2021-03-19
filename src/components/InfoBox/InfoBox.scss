@@ -1,0 +1,22 @@
+@import '../../scss/abstracts/variables';
+
+.info-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: $dark-3;
+  border-radius: 40px;
+
+  &__icon {
+    svg {
+      color: $secondary-colour;
+      background: $font-color-1;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    margin-left: 20px;
+  }
+}

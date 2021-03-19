@@ -1,0 +1,57 @@
+@import '../../scss/abstracts/variables';
+
+.footer {
+  padding: 20px;
+  color: $font-color-1;
+  background: transparent;
+  font-size: $font-small-1;
+
+  a {
+    color: $font-color-1;
+    text-decoration: none;
+  }
+
+  &__main {
+    display: flex;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__links {
+    flex: 0 1 auto;
+    border-right: 2px solid $tertiary-colour;
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+
+  &__link {
+    display: block;
+    margin: 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__social {
+    flex: 1 0 0px;
+  }
+
+  &__social-links {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid $tertiary-colour;
+  }
+
+  &__social-link {
+    font-size: $font-medium-1;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+
+.navigation {
+  @include breakpoint('medium', 'down') {
+    position: sticky;
+    top: 0;
+    z-index: 70;
+  }
+
+  display: flex;
+  align-items: center;
+  background-color: $dark-2;
+  text-align: center;
+  color: white;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 10px 20px;
+
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__main {
+    @include breakpoint('medium', 'down') {
+      display: none;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 0px;
+  }
+
+  &__link {
+    position: relative;
+    padding: 15px;
+    color: $font-color-1;
+    font-weight: 600;
+
+    &,
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.is-active,
+    &:hover {
+      &::after {
+        bottom: 8px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      height: 4px;
+      width: calc(100% - 30px);
+      background-color: $primary-colour;
+      content: '';
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+  }
+
+  &__right {
+    @include breakpoint('medium', 'down') {
+      display: none;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    flex: 0 0 auto;
+  }
+
+  &__hamburger {
+    @include breakpoint('medium') {
+      display: none;
+    }
+
+    margin-left: auto;
+  }
+}

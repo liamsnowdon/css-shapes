@@ -1,0 +1,32 @@
+@import "../../scss/abstracts/variables";
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: $primary-colour;
+  color: $font-color-1;
+  -webkit-appearance: none;
+  font-size: $font-medium-3;
+  line-height: normal;
+  font-family: $body-font-family;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  svg {
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    @media (hover: hover) {
+      background-color: darken($primary-colour, 5%);
+      text-decoration: none;
+    }
+  }
+}

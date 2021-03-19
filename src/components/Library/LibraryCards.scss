@@ -1,0 +1,22 @@
+@import '../../scss/abstracts/mixins';
+
+.library {
+  &__cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 20px;
+
+    @include breakpoint('medium') {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 40px;
+    }
+
+    @include breakpoint('large') {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @include breakpoint('mega') {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+}

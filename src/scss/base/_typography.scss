@@ -1,0 +1,82 @@
+body {
+  color: $font-color-1;
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font-family;
+}
+
+h1 {
+  margin: 0 0 1.8rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h1');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h1');
+  }
+}
+
+h2 {
+  margin: 0 0 1.6rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h2');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h2');
+  }
+}
+
+h3 {
+  margin: 0 0 1.4rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h3');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h3');
+  }
+}
+
+h4 {
+  margin: 0 0 1.2rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h4');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h4');
+  }
+}
+
+h5 {
+  margin: 0 0 1rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h5');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h5');
+  }
+}
+
+h6 {
+  margin: 0 0 0.8rem 0;
+  font-size: map-deep-get($header-font-sizes, 'mobile', 'h6');
+
+  @include breakpoint('medium') {
+    font-size: map-deep-get($header-font-sizes, 'desktop', 'h6');
+  }
+}
+
+p {
+  margin: 0 0 0.8rem 0;
+}
+
+a {
+  color: $primary-colour;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

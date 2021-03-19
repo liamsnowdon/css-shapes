@@ -1,0 +1,55 @@
+$primary-colour: #8739f9;
+$secondary-colour: #c651cd;
+$tertiary-colour: #363636;
+
+$dark-1: #100f10;
+$dark-2: #1b1b1b;
+$dark-3: #242424;
+
+$font-color-1: rgba(white, 0.96);
+$font-color-2: rgba(white, 0.67);
+$font-color-3: rgba(white, 0.45);
+
+$font-large-1: 4.5rem; // 72px
+$font-large-2: 3.5rem; // 56px
+$font-large-3: 2.5rem; // 40px
+
+$font-medium-1: 1.75rem; // 28px
+$font-medium-2: 1.375rem; // 22px
+$font-medium-3: 1rem; // 16px
+
+$font-small-1: 0.875rem; // 14px
+$font-small-2: 0.75rem; // 12px
+$font-small-3: 0.625rem; // 10px
+
+$body-font-family: 'Poppins', sans-serif;
+$body-font-size: $font-medium-3;
+
+$header-font-family: 'Poppins', sans-serif;
+$header-font-sizes: (
+  'desktop': (
+    'h1': $font-large-1,
+    'h2': $font-large-2,
+    'h3': $font-large-3,
+    'h4': $font-medium-1,
+    'h5': $font-medium-2,
+    'h6': $font-medium-3,
+  ),
+  'mobile': (
+    'h1': $font-large-2,
+    'h2': $font-large-3,
+    'h3': $font-medium-1,
+    'h4': $font-medium-2,
+    'h5': $font-medium-3,
+    'h6': $font-medium-3,
+  ),
+);
+
+$breakpoints: (
+  '': 0,
+  tiny: 320,
+  small: 480,
+  medium: 768,
+  large: 1024,
+  mega: 1920,
+);

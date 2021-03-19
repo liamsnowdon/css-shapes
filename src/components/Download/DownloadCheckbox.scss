@@ -1,0 +1,73 @@
+@import '../../scss/abstracts/variables';
+
+.checkbox {
+  $block: &;
+
+  &__input {
+    opacity: 0;
+    position: absolute;
+
+    &:focus {
+      + #{$block}__label {
+        #{$block}__checkbox {
+          border-color: $primary-colour;
+        }
+      }
+    }
+
+    &:checked {
+      + #{$block}__label {
+        #{$block}__checkbox {
+          border-color: $primary-colour;
+          background: $primary-colour;
+          &:before,
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__checkbox {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background: $dark-3;
+
+    &:before,
+    &:after {
+      opacity: 0;
+      position: absolute;
+      width: 2px;
+      content: '';
+      background: $font-color-1;
+    }
+
+    &:before {
+      top: 11px;
+      left: 8px;
+      height: 6px;
+      transform: rotate(-45deg) translate(-50%, -50%);
+    }
+
+    &:after {
+      top: 9px;
+      left: 7px;
+      height: 14px;
+      transform: rotate(45deg) translate(-50%, -50%);
+    }
+  }
+}

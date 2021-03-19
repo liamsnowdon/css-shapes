@@ -1,0 +1,86 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+@import '../../scss/abstracts/placeholders';
+
+.mobile-navigation-overlay {
+  @include breakpoint(medium) {
+    display: none;
+  }
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.mobile-navigation {
+  @include breakpoint(medium) {
+    display: none;
+  }
+
+  position: fixed;
+  right: -100%;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background-color: $dark-2;
+  transition: right 0.5s ease-in-out;
+  z-index: 90;
+
+  &.is-active {
+    right: 0;
+  }
+
+  &__cross {
+    .hamburger-inner {
+      &,
+      &::before,
+      &::after {
+        background-color: $font-color-1 !important;
+      }
+    }
+  }
+
+  &__header {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 20px 20px;
+    color: $font-color-1;
+  }
+
+  &__items {
+    @extend %list-reset;
+  }
+
+  &__link {
+    display: block;
+    padding: 20px;
+    color: $font-color-1;
+    text-decoration: none;
+    font-size: $font-medium-3;
+
+    &.is-active {
+      background-color: $primary-colour;
+    }
+  }
+
+  &__separator {
+    margin: 25px 0;
+  }
+
+  &__buttons {
+    padding: 0 20px;
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+
+.logo {
+  font-size: $font-medium-1;
+  font-weight: 600;
+  color: $font-color-1;
+
+  &__css {
+    background-color: #8739f9;
+    border-radius: 150px / 92px;
+    margin-right: 8px;
+    padding: 2px 10px;
+    display: inline-block;
+  }
+
+  &__shapes {
+  }
+}

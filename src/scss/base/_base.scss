@@ -1,0 +1,33 @@
+@import '../abstracts/mixins';
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: $dark-3;
+  font-family: $body-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding: 20px;
+
+  @include breakpoint('medium') {
+    padding: 30px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}

@@ -1,0 +1,55 @@
+@import './variables';
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/// Removes the unit (e.g. px, em, rem) from a value, returning the number only.
+///
+/// @param {Number} $num - Number to strip unit from.
+///
+/// @returns {Number} - The same number, without the unit.
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+/// Converts a value to rem unit
+///
+/// @param {Number} $value - Value to convert
+///
+/// @returns {Number} - Converted value
+@function convert-to-rem($value, $base-value: 16px) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+
+  @return $value;
+}
+
+/// Passes value or list of values to convert-to-rem function to convert to rems.
+///
+/// @param {Number|List} - One or more values to convert. List should be space separated, not comma separated.
+/// @param {Number} - base value to use when calculating the rem.
+@function rem-calc($values, $base-value: 16px) {
+  $max: length($values);
+
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+
+  $remValues: ();
+
+  @for $i from 1 through $max {
+    $remValues: append(
+      $remValues,
+      convert-to-rem(nth($values, $i), $base-value)
+    );
+  }
+
+  @return $remValues;
+}

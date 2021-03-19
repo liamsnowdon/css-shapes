@@ -1,0 +1,33 @@
+@import '../../scss/abstracts/mixins';
+
+.download {
+  &__snippets {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 20px;
+
+    @include breakpoint('medium') {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-gap: 40px;
+    }
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -25px;
+
+    .checkbox {
+      flex: 0 0 50%;
+      margin-top: 25px;
+
+      @include breakpoint('medium') {
+        flex: 0 0 33.3333%;
+      }
+
+      @include breakpoint('large') {
+        flex: 0 0 25%;
+      }
+    }
+  }
+}

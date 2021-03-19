@@ -1,0 +1,271 @@
+@import './variables';
+
+/// Mixin to create different media queries based on the breakpoints map in `_variables.scss`. The following can be created:
+/// * Min-width: `@include breakpoint('medium') { };`
+/// * Max-width: `@include breakpoint('large', 'down') { };`
+/// * Single breakpoint only: `@include breakpoint('medium', 'only') { };`
+/// * Min-width and max-width: `@include breakpoint('small', null, 'large') { };`
+///
+/// @param {String} $breakpoint - The breakpoint from the breakpoints map.
+/// @param {String} $option [null] - 'down': max-width, 'only': single breakpoint only, null: min-width/ranged
+/// @param {String} $max [null] - The maximum breakpoint to work with ranged media queries
+///
+/// @group Breakpoints
+/// @require {variable} breakpoints
+/// @author Liam Snowdon
+@mixin breakpoint($breakpoint, $option: null, $max: null) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    // min-width and max-width media query with flexible range
+    @if ($option) {
+      // max-width media query
+      @if $option == down {
+        @if ($max) {
+          @warn "The $max parameter cannot be used with the 'down' option media query.";
+        }
+        @media screen and (max-width: #{map-get($breakpoints, $breakpoint) * 1px}) {
+          @content;
+        }
+      } @else if $option == only {
+        @if ($max) {
+          @warn "The $max parameter cannot be used with the 'only' option media query.";
+        }
+        // Loop through $breakpoints map to find the index of the passed breakpoint
+        @each $key, $value in $breakpoints {
+          @if $value == map-get($breakpoints, $breakpoint) {
+            $keys: map-keys(
+              $breakpoints
+            ); // Returns all the keys in the $breakpoints map
+            $mapLength: length(
+              $breakpoints
+            ); // Returns the length of the $breakpoints map
+            $currentIndex: index(
+              $breakpoints,
+              ($key $value)
+            ); // Returns the current index of the $breakpoints map
+
+            // Check to make sure the 'only' parameter is not being used with the largest breakpoint available
+            @if $currentIndex == $mapLength {
+              @error "The `only` option parameter cannot be used on the largest breakpoint. Try removing this option to use a min-width media query instead.";
+            } @else {
+              // Finds the breakpoint above for the range between
+              $maxKeyIndex: $currentIndex + 1;
+              $maxKey: nth($keys, $maxKeyIndex);
+
+              $minBreakpoint: $value;
+              $maxBreakpoint: map-get($breakpoints, $maxKey);
+
+              @media screen and (min-width: (#{$minBreakpoint * 1px})) and (max-width: #{$maxBreakpoint * 1px}) {
+                @content;
+              }
+            }
+          }
+        }
+      } @else {
+        @error "Option not recognised. Available options are: `down`, `only` and `null`.";
+      }
+    } @else if ($max) {
+      @if map-has-key($breakpoints, $max) {
+        $minBreakpoint: #{map-get($breakpoints, $breakpoint)};
+        $maxBreakpoint: #{map-get($breakpoints, $max)};
+
+        // Ensure both breakpoints are not the same
+        @if $minBreakpoint == $maxBreakpoint {
+          @error "The minimum breakpoint and maximum breakpoint must not be the same.";
+        }
+
+        // Ensure that minimum breakpoint is larger than the maximum breakpoint
+        $minBreakpointValue: toNumber(#{$minBreakpoint});
+        $maxBreakpointValue: toNumber(#{$maxBreakpoint});
+
+        @if $minBreakpointValue > $maxBreakpointValue {
+          @error "The minimum breakpoint must not be larger than the maximum breakpoint.";
+        }
+
+        @media screen and (min-width: #{$minBreakpointValue * 1px}) and (max-width: #{$maxBreakpointValue * 1px}) {
+          @content;
+        }
+      } @else {
+        @error "Max breakpoint not found. Please use one of the following: '#{map_keys($breakpoints)}'";
+      }
+    }
+    // min-width media query
+    @else {
+      @media screen and (min-width: #{map-get($breakpoints, $breakpoint) * 1px}) {
+        @content;
+      }
+    }
+  }
+  // print error in console if unknown breakpoint is used
+  @else {
+    @error "Breakpoint not found. Please use one of the following: '#{map_keys($breakpoints)}'";
+  }
+}
+
+@mixin circle($diameter: 200px, $color: $primary-colour) {
+  height: $diameter;
+  width: $diameter;
+  background-color: $color;
+  border-radius: 50%;
+}
+
+@mixin oval($height: 200px, $width: 400px, $color: $primary-colour) {
+  height: $height;
+  width: $width;
+  background-color: $color;
+  border-radius: 50%;
+}
+
+@mixin square($width: 200px, $color: $primary-colour) {
+  height: $width;
+  width: $width;
+  background-color: $color;
+}
+
+@mixin rectangle($height: 200px, $width: 400px, $color: $primary-colour) {
+  height: $height;
+  width: $width;
+  background-color: $color;
+}
+
+@mixin triangleUp(
+  $border-left: 100px,
+  $border-right: 100px,
+  $border-bottom: 200px,
+  $color: $primary-colour
+) {
+  height: 0;
+  width: 0;
+  border-left: $border-left solid transparent;
+  border-right: $border-right solid transparent;
+  border-bottom: $border-bottom solid $color;
+}
+
+@mixin triangleDown(
+  $border-left: 100px,
+  $border-right: 100px,
+  $border-top: 200px,
+  $color: $primary-colour
+) {
+  height: 0;
+  width: 0;
+  border-left: $border-left solid transparent;
+  border-right: $border-right solid transparent;
+  border-top: $border-top solid $color;
+}
+
+@mixin triangleLeft(
+  $border-top: 100px,
+  $border-bottom: 100px,
+  $border-right: 200px,
+  $color: $primary-colour
+) {
+  height: 0;
+  width: 0;
+  border-top: $border-top solid transparent;
+  border-bottom: $border-bottom solid transparent;
+  border-right: $border-right solid $color;
+}
+
+@mixin triangleRight(
+  $border-top: 100px,
+  $border-bottom: 100px,
+  $border-left: 200px,
+  $color: $primary-colour
+) {
+  height: 0;
+  width: 0;
+  border-top: $border-top solid transparent;
+  border-bottom: $border-bottom solid transparent;
+  border-left: $border-left solid $color;
+}
+
+@mixin trapezium(
+  $width: 250px,
+  $border-right: 50px,
+  $border-left: 50px,
+  $border-bottom: 150px,
+  $color: $primary-colour
+) {
+  height: 0;
+  width: $width;
+  position: relative;
+  border-right: $border-right solid transparent;
+  border-left: $border-left solid transparent;
+  border-bottom: $border-bottom solid $color;
+}
+
+@mixin parallelogram(
+  $height: 150px,
+  $width: 250px,
+  $color: $primary-colour,
+  $skew: -20deg
+) {
+  height: $height;
+  width: $width;
+  background-color: $color;
+  transform: skew($skew);
+}
+
+@mixin starSixPoint($multiplier: 1, $color: $primary-colour) {
+  height: 0;
+  width: 0;
+  margin-bottom: 60px * $multiplier;
+  position: relative;
+  border-right: (100px * $multiplier) solid transparent;
+  border-left: (100px * $multiplier) solid transparent;
+  border-bottom: (200px * $multiplier) solid $color;
+
+  &::before {
+    height: 0;
+    width: 0;
+    border-right: (100px * $multiplier) solid transparent;
+    border-left: (100px * $multiplier) solid transparent;
+    border-top: (200px * $multiplier) solid $color;
+    position: absolute;
+    top: 60px * $multiplier;
+    left: -105px * $multiplier;
+    content: '';
+  }
+}
+
+@mixin starFivePoint($multiplier: 1, $color: $primary-colour) {
+  height: 0;
+  width: 0;
+  margin: (50px * $multiplier) 0;
+  position: relative;
+  display: block;
+  color: $color;
+  border-right: (100px * $multiplier) solid transparent;
+  border-left: (100px * $multiplier) solid transparent;
+  border-bottom: (70px * $multiplier) solid $color;
+  transform: rotate(35deg);
+
+  &::before {
+    height: 0;
+    width: 0;
+    border-bottom: (80px * $multiplier) solid $color;
+    border-left: (30px * $multiplier) solid transparent;
+    border-right: (30px * $multiplier) solid transparent;
+    position: absolute;
+    top: -45px * $multiplier;
+    left: -65px * $multiplier;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+  }
+
+  &::after {
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: block;
+    color: $color;
+    top: 3px * $multiplier;
+    left: -105px * $multiplier;
+    border-right: (100px * $multiplier) solid transparent;
+    border-left: (100px * $multiplier) solid transparent;
+    border-bottom: (70px * $multiplier) solid $color;
+    content: '';
+    transform: rotate(-70deg);
+  }
+}
