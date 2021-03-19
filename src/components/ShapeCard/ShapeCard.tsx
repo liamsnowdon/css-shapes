@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Case from '../../util/Case';
-import Shape from '../../models/Shape';
+import ShapeClass from '../../models/Shape';
+import Shape from '../Shape/Shape';
 
 import './ShapeCard.scss';
 
 interface ShapeCardProps {
-  shape: Shape;
+  shape: ShapeClass;
 }
 
 const ShapeCard: React.FC<ShapeCardProps> = (props) => {
@@ -17,9 +18,7 @@ const ShapeCard: React.FC<ShapeCardProps> = (props) => {
       className='shape-card'
     >
       <div className='shape-card__shape'>
-        <div
-          className={`shape-card__shape-${Case.kebab(props.shape.name)}`}
-        ></div>
+        <Shape shape={props.shape} />
       </div>
       <div className='shape-card__content'>
         <h4 className='shape-card__name'>{props.shape.name}</h4>

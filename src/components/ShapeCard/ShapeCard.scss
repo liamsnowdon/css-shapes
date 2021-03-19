@@ -5,6 +5,7 @@
   display: block;
   background-color: $dark-2;
   border-radius: 10px;
+  height: 100%;
 
   &,
   &:hover {
@@ -19,65 +20,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 120px;
-    border-bottom: 1px solid $tertiary-colour;
-  }
+    height: 80px;
+    color: $primary-colour;
 
-  &__shape-circle {
-    @include circle(70px);
-  }
+    @include breakpoint('medium') {
+      height: 120px;
+    }
 
-  &__shape-oval {
-    @include oval(70px, 140px);
-  }
+    .shape {
+      transform: scale(0.2);
 
-  &__shape-square {
-    @include square(70px);
-  }
-
-  &__shape-rectangle {
-    @include rectangle(70px, 140px);
-  }
-
-  &__shape-triangle-up {
-    @include triangleUp(35px, 35px, 70px);
-  }
-
-  &__shape-triangle-down {
-    @include triangleDown(35px, 35px, 70px);
-  }
-
-  &__shape-triangle-left {
-    @include triangleLeft(35px, 35px, 70px);
-  }
-
-  &__shape-triangle-right {
-    @include triangleRight(35px, 35px, 70px);
-  }
-
-  &__shape-trapezium {
-    @include trapezium(140px, 40px, 40px, 70px);
-  }
-
-  &__shape-parallelogram {
-    @include parallelogram(70px, 120px);
-  }
-
-  &__shape-star-six-point {
-    @include starSixPoint(0.4);
-  }
-
-  &__shape-star-five-point {
-    @include starFivePoint(0.5);
+      @include breakpoint('medium') {
+        transform: scale(0.35);
+      }
+    }
   }
 
   &__content {
     padding: 20px;
     text-align: center;
+    border-top: 1px solid $tertiary-colour;
+
+    @include breakpoint('medium', 'down') {
+      display: none;
+    }
   }
 
   &__name {
     margin: 0;
     color: $font-color-1;
+    hyphens: auto;
   }
 }

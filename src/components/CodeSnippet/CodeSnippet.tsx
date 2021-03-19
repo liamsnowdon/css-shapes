@@ -42,8 +42,6 @@ const CodeSnippet: React.FC<CodeSnippetProps> = (props) => {
             {props.code}
           </code>
         </pre>
-
-        <style>{props.code}</style>
       </div>
     </div>
   );
