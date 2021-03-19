@@ -30,7 +30,7 @@ const About: React.FC<AboutProps> = (props) => {
           Each shape has code snippets to copy and paste the required HTML, CSS
           and Sass/SCSS to render the shape. The{' '}
           <Link to='/download'>download</Link> page allows selecting multiple
-          shapes and downloading a stylesheet containing all rules.
+          shapes and downloading a stylesheet containing all the rules you need.
         </p>
 
         <br />
