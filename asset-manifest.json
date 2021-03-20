@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.79ed9458.chunk.css",
-    "main.js": "/static/js/main.03eaadaa.chunk.js",
-    "main.js.map": "/static/js/main.03eaadaa.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7f4c0b72.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7f4c0b72.js.map",
-    "static/js/2.4fcf388c.chunk.js": "/static/js/2.4fcf388c.chunk.js",
-    "static/js/2.4fcf388c.chunk.js.map": "/static/js/2.4fcf388c.chunk.js.map",
-    "static/js/3.757b66ed.chunk.js": "/static/js/3.757b66ed.chunk.js",
-    "static/js/3.757b66ed.chunk.js.map": "/static/js/3.757b66ed.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.79ed9458.chunk.css.map": "/static/css/main.79ed9458.chunk.css.map",
-    "static/js/2.4fcf388c.chunk.js.LICENSE.txt": "/static/js/2.4fcf388c.chunk.js.LICENSE.txt"
+    "main.css": "https://liamsnowdon.github.io/css-shapes/static/css/main.79ed9458.chunk.css",
+    "main.js": "https://liamsnowdon.github.io/css-shapes/static/js/main.03eaadaa.chunk.js",
+    "main.js.map": "https://liamsnowdon.github.io/css-shapes/static/js/main.03eaadaa.chunk.js.map",
+    "runtime-main.js": "https://liamsnowdon.github.io/css-shapes/static/js/runtime-main.4206cf42.js",
+    "runtime-main.js.map": "https://liamsnowdon.github.io/css-shapes/static/js/runtime-main.4206cf42.js.map",
+    "static/js/2.4fcf388c.chunk.js": "https://liamsnowdon.github.io/css-shapes/static/js/2.4fcf388c.chunk.js",
+    "static/js/2.4fcf388c.chunk.js.map": "https://liamsnowdon.github.io/css-shapes/static/js/2.4fcf388c.chunk.js.map",
+    "static/js/3.757b66ed.chunk.js": "https://liamsnowdon.github.io/css-shapes/static/js/3.757b66ed.chunk.js",
+    "static/js/3.757b66ed.chunk.js.map": "https://liamsnowdon.github.io/css-shapes/static/js/3.757b66ed.chunk.js.map",
+    "index.html": "https://liamsnowdon.github.io/css-shapes/index.html",
+    "static/css/main.79ed9458.chunk.css.map": "https://liamsnowdon.github.io/css-shapes/static/css/main.79ed9458.chunk.css.map",
+    "static/js/2.4fcf388c.chunk.js.LICENSE.txt": "https://liamsnowdon.github.io/css-shapes/static/js/2.4fcf388c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f4c0b72.js",
+    "static/js/runtime-main.4206cf42.js",
     "static/js/2.4fcf388c.chunk.js",
     "static/css/main.79ed9458.chunk.css",
     "static/js/main.03eaadaa.chunk.js"
