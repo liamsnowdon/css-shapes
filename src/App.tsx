@@ -27,7 +27,7 @@ const App: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/data/shapes.json');
+      const response = await fetch('data/shapes.json');
       const json = await response.json();
       const shapes = plainToClass(Shape, json);
 
