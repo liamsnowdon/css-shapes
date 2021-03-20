@@ -1,9 +1,24 @@
 @import '../../scss/abstracts/variables';
+@import '../../scss/abstracts/mixins';
+@import '../../scss/abstracts/functions';
 
 .preview {
+  &__title {
+    hyphens: auto;
+  }
+
   &__shape {
     display: flex;
     justify-content: center;
+    align-items: center;
     color: $secondary-colour;
+
+    @include breakpoint('smedium', 'down') {
+      height: rem-calc(120);
+
+      .shape {
+        transform: scale(0.6);
+      }
+    }
   }
 }

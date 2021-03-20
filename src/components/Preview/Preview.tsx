@@ -15,7 +15,7 @@ const Preview: React.FC<PreviewProps> = (props) => {
   return (
     <section className='preview'>
       <Pod className='text-center'>
-        <h1>{props.shape.name}</h1>
+        <h1 className='preview__title'>{props.shape.name}</h1>
 
         <div className='preview__shape'>
           <Shape shape={props.shape} />
